@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to Balkan Bike Tours{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-image: url('{{ url_for('static', filename='images/background.jpg') }}');
+        background-size: cover;
+            }
+</style>
+
+<div class="content">
+     <h1 id="blinking-header">Welcome to Balkan Bike Tours</h1>
+    <p>Discover the beauty of the Balkans on two wheels</p>
+    <p><a href="{{ url_for('tours') }}" class="blinking-button">See our tours</a></p>
+</div>
+<script src="{{ url_for('static', filename='js/blinking.js') }}"></script><!--skriptas veikia-->
+{% endblock %}
+

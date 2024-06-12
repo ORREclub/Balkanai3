@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Tour - Balkan Bike Tours</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/clients.css') }}">
+</head>
+<body>
+    <h1>Add Tour</h1>
+    <form method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br>
+
+        <label for="date_start">Start Date:</label>
+        <input type="date" id="date_start" name="date_start" required><br>
+
+        <label for="date_end">End Date:</label>
+        <input type="date" id="date_end" name="date_end" required><br>
+
+        <input type="submit" value="Add Tour">
+    </form>
+
+    <h1>Tours</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tour in tours %}
+            <tr>
+                <td>{{ tour.id }}</td>
+                <td>{{ tour.name }}</td>
+                <td>{{ tour.location }}</td>
+                <td>{{ tour.description }}</td>
+                <td>{{ tour.date_start }}</td>
+                <td>{{ tour.date_end }}</td>
+                <td>
+                    <form action="{{ url_for('delete_tour', tour_id=tour.id) }}" method="post">
+                        <button type="submit" name="tour_id" value="{{ tour.id }}">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

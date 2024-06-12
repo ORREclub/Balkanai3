@@ -1,0 +1,47 @@
+<!-- cia as sujungiau po to, client lista su add-client ir delete client, bet gal prireiks,kolkas netrinu -->
+
+
+{% extends "base.html" %}
+
+{% block title %}
+    Client list- Balkan Bike Tours
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/table_styles.css') }}">-->
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/client_list.css') }}">
+
+    <main>
+        <h2>Client List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Tour Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for client in clients %} <!--loopsas eina per visus klientus gaunu klientu lista-->
+                <tr>
+                    <td>{{ client.name }}</td>
+                    <td>{{ client.surname }}</td>
+                    <td>{{ client.email }}</td>
+                    <td>{{ client.tour_name }}</td>
+                    <td>
+                        <form action="{{ url_for('delete_client', client_id=client.id) }}" method="post" >
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
+{% endblock %}

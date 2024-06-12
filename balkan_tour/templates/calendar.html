@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Contacts{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+<!--<style>-->
+<!--    body {-->
+<!--        background-image: url('{{ url_for('static', filename='images/fonas.jpg') }}');-->
+<!--        background-size: cover;-->
+
+<!--    }-->
+<!--</style>-->
+<body>
+    <div class="calendar">
+        <!-- Čia atvaizduojamas kalendorius, jūsų paties realizaciją -->
+
+
+    <h1>Tours</h1>
+    <table class="tours-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th>Start date</th>
+                <th>End date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tour in tours %}
+                <tr>
+                    <td>{{ tour.id }}</td>
+                    <td>{{ tour.name }}</td>
+                    <td>{{ tour.location }}</td>
+                    <td>{{ tour.description }}</td>
+                    <td>{{ tour.date_start }}</td>
+                    <td>{{ tour.date_end }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+</body>
+{% endblock %}

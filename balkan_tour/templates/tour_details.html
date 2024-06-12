@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tour Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tour_details.css') }}">
+</head>
+<body>
+    <h1>{{ tour.name }} Tour Details</h1>
+    <p><strong>Location:</strong> {{ tour.location }}</p>
+    <p><strong>Description:</strong> {{ tour.description }}</p>
+
+    <h2>Clients on this Tour:</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+        </tr>
+        {% for client in clients %}  <!--gaunu klientu lista-->
+        <tr>
+            <td>{{ client.name }}</td>
+            <td>{{ client.surname }}</td>
+            <td>{{ client.email }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

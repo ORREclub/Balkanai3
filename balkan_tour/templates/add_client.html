@@ -1,0 +1,44 @@
+<!--#šito man nebereikia kolkas pasidariau geresnį-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Add New Client</title>-->
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">-->
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='css/form_styles.css') }}">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <header>-->
+<!--        <nav>-->
+<!--            <ul>-->
+<!--                <li><a href="{{ url_for('index') }}">Home</a></li>-->
+<!--                <li><a href="{{ url_for('tours') }}">Tours</a></li>-->
+<!--                <li><a href="{{ url_for('contacts') }}">Contacts</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+<!--    </header>-->
+<!--    <main>-->
+<!--        <h1>Add a New Client</h1>-->
+<!--        <form action="{{ url_for('add_client') }}" method="post">-->
+<!--            <label for="name">Name:</label>-->
+<!--            <input type="text" id="name" name="name" required><br><br>-->
+
+<!--            <label for="surname">Surname:</label>-->
+<!--            <input type="text" id="surname" name="surname" required><br><br>-->
+
+<!--            <label for="email">E-mail:</label>-->
+<!--            <input type="email" id="email" name="email" required><br><br>-->
+
+<!--            <label for="tour">Choose a Tour:</label>-->
+<!--            <select id="tour" name="tour" required>-->
+<!--                {% for tour in tours %}-->
+<!--                    <option value="{{ tour.id }}">{{ tour.name }}</option>-->
+<!--                {% endfor %}-->
+<!--            </select><br><br>-->
+
+<!--            <input type="submit" value="Add Client">-->
+<!--        </form>-->
+<!--    </main>-->
+<!--</body>-->
+<!--</html>-->

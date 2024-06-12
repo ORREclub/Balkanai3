@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Clients - Balkan Bike Tours
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/clients.css') }}">
+    <h1>Clients</h1>
+    <form action="{{ url_for('clients') }}" method="post">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="tour">Choose a Tour:</label>
+        <select id="tour" name="tour" required>
+            {% for tour in tours %}
+                <option value="{{ tour.id }}">{{ tour.name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <input type="submit" value="Add Client">
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Tour</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in clients %}  <!-- cia  loop ciklas paduoda klientu lista -->
+                <tr>
+                    <td>{{ client.name }}</td>
+                    <td>{{ client.surname }}</td>
+                    <td>{{ client.email }}</td>
+                    <td>{{ client.tour_name }}</td>
+                    <td>
+                        <form action="{{ url_for('delete_client', client_id=client.id) }}" method="post">
+                            <button type="submit">Delete</button>
+                            <!--Kai paspaudziu "Delete" mygtuką, forma siunčia POST užklausą į URL,
+                             kurį sugeneravo url_for('delete_client', client_id=client.id). Flask maršrutas
+                             delete_client gauna šią užklausą, paima client_id iš URL ir tada ištrina atitinkamą klientą iš duomenų bazės-->
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

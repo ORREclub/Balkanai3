@@ -1,0 +1,31 @@
+.calendar {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.calendar table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar th, .calendar td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.calendar th {
+    background-color: #f2f2f2;
+}
+body {
+    background-color: #d8ffd6; /* Bendra šviesiai žalia spalva */
+}
+/* Visos eilutės tamsesnio tono */
+.tours-table tr {
+    background-color: #b5ffb5; /* Tamsus tonas */
+}
+
+/* Nustatykite kiekvieną lyginę eilutę šviesiau */
+.tours-table tr:nth-child(even) {
+    background-color: #d8ffd6; /* Šviesesnis tonas */
+}
